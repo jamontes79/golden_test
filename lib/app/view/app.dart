@@ -7,8 +7,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:golden/counter/counter.dart';
 import 'package:golden/l10n/l10n.dart';
+import 'package:golden/login/login_page.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -26,8 +26,9 @@ class App extends StatelessWidget {
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
       ],
+      debugShowCheckedModeBanner: false,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const CounterPage(),
+      home: const LoginPage(),
     );
   }
 }

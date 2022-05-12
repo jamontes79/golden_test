@@ -1,7 +1,7 @@
 {
     "@@locale": "en",
-    "counterAppBarTitle": "Counter",
-    "@counterAppBarTitle": {
-        "description": "Text shown in the AppBar of the Counter Page"
-    }
+    "loginAppBarTitle": "Golden Tests",
+    "loginFormEmail":  "E-mail",
+    "loginFormPassword": "Password",
+    "loginFormButton" : "Login"
 }
