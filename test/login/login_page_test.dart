@@ -4,18 +4,24 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden/l10n/l10n.dart';
 import 'package:golden/login/login_page.dart';
+import 'package:golden_toolkit/golden_toolkit.dart' show loadAppFonts;
 
 void main() {
+  setUpAll(() async {
+    // this is the relevant line of code
+    await loadAppFonts();
+  });
+
   group('Status golden test', () {
     goldenTest(
-      'renders correctly in english',
-      fileName: 'login_page_english',
+      'renders correctly',
+      fileName: 'login_page',
       pumpBeforeTest: precacheImages,
       builder: () => GoldenTestGroup(
         columnWidthBuilder: (_) => const FlexColumnWidth(),
         children: [
           GoldenTestScenario(
-            name: 'login',
+            name: 'english',
             child: ClipRect(
               child: SizedBox(
                 width: 414,
@@ -40,19 +46,8 @@ void main() {
               ),
             ),
           ),
-        ],
-      ),
-    );
-
-    goldenTest(
-      'renders correctly in spanish',
-      fileName: 'login_page_spanish',
-      pumpBeforeTest: precacheImages,
-      builder: () => GoldenTestGroup(
-        columnWidthBuilder: (_) => const FlexColumnWidth(),
-        children: [
           GoldenTestScenario(
-            name: 'login',
+            name: 'spanish',
             child: ClipRect(
               child: SizedBox(
                 width: 414,
@@ -71,8 +66,8 @@ void main() {
                     GlobalCupertinoLocalizations.delegate,
                   ],
                   debugShowCheckedModeBanner: false,
-                  locale: const Locale('es'),
                   supportedLocales: AppLocalizations.supportedLocales,
+                  locale: const Locale('es'),
                   home: const LoginPage(),
                 ),
               ),
